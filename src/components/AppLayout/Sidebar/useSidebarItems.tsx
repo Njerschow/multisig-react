@@ -36,6 +36,12 @@ const useSidebarItems = (): ListItemType[] => {
         href: `${matchSafeWithAddress?.url}/balances`,
       },
       {
+        label: 'SWAP',
+        icon: <ListIcon type="cross" />,
+        selected: matchSafeWithAction?.params.safeAction === 'swap',
+        href: `${matchSafeWithAddress?.url}/swap`,
+      },
+      {
         label: 'TRANSACTIONS',
         icon: <ListIcon type="transactionsInactive" />,
         selected: matchSafeWithAction?.params.safeAction === 'transactions',

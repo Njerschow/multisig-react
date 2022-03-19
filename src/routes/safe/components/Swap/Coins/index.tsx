@@ -19,8 +19,8 @@ import {
   currentCurrencySelector,
   safeFiatBalancesListSelector,
 } from 'src/logic/currencyValues/store/selectors'
-import { BALANCE_ROW_TEST_ID } from 'src/routes/safe/components/Balances'
-import AssetTableCell from 'src/routes/safe/components/Balances/AssetTableCell'
+import { BALANCE_ROW_TEST_ID } from 'src/routes/safe/components/Swap'
+import AssetTableCell from 'src/routes/safe/components/Swap/AssetTableCell'
 import {
   BALANCE_TABLE_ASSET_ID,
   BALANCE_TABLE_BALANCE_ID,
@@ -28,7 +28,7 @@ import {
   generateColumns,
   getBalanceData,
   BalanceData,
-} from 'src/routes/safe/components/Balances/dataFetcher'
+} from 'src/routes/safe/components/Swap/dataFetcher'
 import { extendedSafeTokensSelector, grantedSelector } from 'src/routes/safe/container/selector'
 import { makeStyles } from '@material-ui/core/styles'
 import { styles } from './styles'
@@ -73,19 +73,11 @@ const Coins = (props: Props): React.ReactElement => {
   const currencyValues = useSelector(safeFiatBalancesListSelector)
   const granted = useSelector(grantedSelector)
 
-
-  
   const filteredData: List<BalanceData> = useMemo(
     () => getBalanceData(activeTokens, selectedCurrency, currencyValues, currencyRate),
     [activeTokens, selectedCurrency, currencyValues, currencyRate],
-    )
-    
-    console.log('==autoColumns==')
-    console.log(autoColumns)
-    console.log('=-=')
-    console.log('==filteredData==')
-    console.log(filteredData)
-    console.log('=-=')
+  )
+
   return (
     <TableContainer>
       <Table

@@ -17,6 +17,7 @@ export const TRANSACTIONS_TAB_NEW_BTN_TEST_ID = 'transactions-tab-new-btn'
 
 const Settings = lazy(() => import('../components/Settings'))
 const Balances = lazy(() => import('../components/Balances'))
+const Swap = lazy(() => import('../components/Swap'))
 const TxsTable = lazy(() => import('src/routes/safe/components/Transactions/TxsTable'))
 const AddressBookTable = lazy(() => import('src/routes/safe/components/AddressBook'))
 
@@ -58,6 +59,7 @@ const Container = (): React.ReactElement => {
     <Suspense fallback={null}>
       <Switch>
         <Route exact path={`${matchSafeWithAddress?.path}/balances/:assetType?`} component={Balances} />
+        <Route exact path={`${matchSafeWithAddress?.path}/swap`} component={Swap} />
         <Route exact path={`${matchSafeWithAddress?.path}/transactions`} component={TxsTable} />
         <Route exact path={`${matchSafeWithAddress?.path}/settings`} component={Settings} />
         <Route exact path={`${matchSafeWithAddress?.path}/address-book`} component={AddressBookTable} />
